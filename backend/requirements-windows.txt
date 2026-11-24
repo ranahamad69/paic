@@ -1,0 +1,5 @@
+# Install ONLY on the Windows host that runs the MT5 desktop terminal.
+# Before installing, confirm a wheel exists for your Python version:
+#   pip download MetaTrader5 --only-binary=:all: --no-deps -d %TEMP%\mt5check
+-r requirements.txt
+MetaTrader5>=5.0.45        # official MetaQuotes package (pulls in numpy)

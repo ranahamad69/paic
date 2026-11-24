@@ -1,0 +1,25 @@
+[project]
+name = "paic-backend"
+version = "0.1.0"
+description = "AI Forex swing-trading platform backend - Phase 1 (read-only MT5 connectivity and market data)"
+requires-python = ">=3.11"
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "N", "BLE"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["B", "N"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "windows_mt5: requires Windows with a running MT5 terminal and the MetaTrader5 package (skipped otherwise)",
+]
+addopts = "-ra"
+
+[tool.ruff.lint.flake8-bugbear]
+extend-immutable-calls = ["fastapi.Depends", "fastapi.Query", "fastapi.Path"]
